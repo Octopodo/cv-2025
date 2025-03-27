@@ -43,34 +43,53 @@ const sectionClass = title.toLowerCase().replace(/\s+/g, '-');
 </section>
 
 <style>
-
-  h2 { font-size: 2rem; margin-bottom: 1rem; display: flex; align-items: center; }
-  .content { line-height: 1.6; }
-  .tools-list li { margin: 0.5rem 0; }
-  .tools-list strong { font-size: 1.1rem; }
-  .tools-list .tech { margin: 0 5px; }
-  
-  /* Añade estas líneas */
-  .category-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .tech-item {
-    margin-bottom: 0.5rem;
-  }
-
-    .external-link {
-        margin-bottom: 10px;
-        color: #4B5563;
+    h2 { font-size: 2rem; margin-bottom: 1rem; display: flex; align-items: center; }
+    .content { line-height: 1.6; }
+    .tools-list li { margin: 0.5rem 0; }
+    .tools-list strong { font-size: 1.1rem; }
+    
+    /* Modifica estas líneas */
+    .tools-list .tech { 
+      margin: 0 5px; 
+      display: inline-block;
+      margin-bottom: 5px;
+      word-break: break-word; /* Permite romper palabras largas */
     }
-
-a{
-    color: #4B5563;
-}
-
-  /* Añade estas líneas */
-  .title-icon { margin-right: 0.5rem;
-}
-</style>
+    
+    .category-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .tech-item {
+      margin-bottom: 0.5rem;
+      max-width: 100%; /* Limita el ancho al contenedor padre */
+      overflow-wrap: break-word; /* Permite romper palabras largas */
+    }
+  
+    .external-link {
+      margin-bottom: 10px;
+      color: #4B5563;
+    }
+  
+    a {
+      color: #4B5563;
+    }
+  
+    .title-icon { 
+      margin-right: 0.5rem;
+    }
+    
+    /* Añade estas líneas para responsividad */
+    @media (max-width: 768px) {
+      .tech {
+        display: block;
+        margin: 5px 0;
+      }
+      
+      .tech-item {
+        padding-right: 5px;
+      }
+    }
+  </style>
