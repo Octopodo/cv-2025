@@ -5,5 +5,6 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
     site: 'https://Octopodo.github.io',
     base: '/cv-2025',
-    output: 'static'
+    output: 'static',
+    outDir: 'docs'
 });
