@@ -1,11 +1,50 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import cvData from '../data/cv.json';
+import '../styles/global.css';
+const { sections } = cvData;
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const icons = {
+  "Perfil": "fa-user",
+  "Herramientas y Tecnologías": "fa-tools",
+  "Experiencia Profesional": "fa-briefcase",
+  "Proyectos Personales Destacados": "fa-code",
+  "Formación": "fa-graduation-cap",
+  "Habilidades": "fa-star",
+  "Idiomas y Otros Datos": "fa-globe"
+};
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Desarrollador Full Stack</title>
+  <link rel="stylesheet" href="/styles/global.css">
+</head>
+<body>
+  <div class="container">
+    <Header />
+
+    {sections.map(section => (
+      <Section title={section.title} content={section.content} icon={icons[section.title]} />
+    ))}
+  </div>
+
+  <button id="scroll-top" title="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
